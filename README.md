@@ -139,6 +139,11 @@ PushNotification.configure({
     // (required) Called when a remote or local notification is opened or received
     onNotification: function(notification) {
         console.log( 'NOTIFICATION:', notification );
+
+        // process the notification
+        
+        // required on iOS only (see fetchCompletionHandler docs: https://facebook.github.io/react-native/docs/pushnotificationios.html)
+        notification.finish(PushNotificationIOS.FetchResult.NoData);
     },
 
     // ANDROID ONLY: GCM Sender ID (optional - not required for local notifications, but is need to receive remote push notifications)
@@ -204,7 +209,7 @@ PushNotification.localNotification({
     userInfo: // (optional) default: null (object containing additional notification data)
 
     /* iOS and Android properties */
-    title: "My Notification Title", // (optional, for iOS this is only used in apple watch, the title will be the app name on other iOS devices)
+    title: "My Notification Title", // (optional)
     message: "My Notification Message", // (required)
     playSound: false, // (optional) default: true
     soundName: 'default', // (optional) Sound to play when the notification is shown. Value of 'default' plays the default sound. It can be set to a custom sound such as 'android.resource://com.xyz/raw/my_sound'. It will look for the 'my_sound' audio file in 'res/raw' directory and play it. default: 'default' (default sound is played)
