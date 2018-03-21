@@ -125,6 +125,10 @@ public class MainApplication extends Application implements ReactApplication {
 }
 ```
 
+### Use environment's Google Service Version (due to crash on Google Service version 12
+
+You can specify googlePlayServicesVersion in "android/gradle.properties". Otherwise, it will take default version e.g. `googlePlayServicesVersion=11.8.0`
+
 ## Usage
 ```javascript
 var PushNotification = require('react-native-push-notification');
